@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- title of the page -->
+    <title>New Page</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Font CDN-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- custom stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h1>{{ newTitle }}</h1>
+        <!-- changing the title using the v-model directive which is two way data binding -->
+        <input type="text" placeholder="Enter new title" v-model="changeTitle">
+        <p> {{ changeTitle }} </p>
+        <!-- prompting the title text using function from the Vue Instance -->
+        <p> {{ titleChange() }}</p>
+        <!-- changing the link of the page dynamically using v-bind directive -->
+        <a v-bind:href="link">Google</a>
+        <!-- rendering html markup -->
+        <p v-html="finishedLink"></p>
+        
+        <hr>
+        
+        <!-- counter -->
+        <h2>{{ counter }}</h2>
+        <!-- counter Incrementing Button -->
+        <button v-on:click="increaseCounter">Increase Counter</button>
+        <!-- by using the v-on directive we can trigger a mouse move function that will propmt out the mouse coordinate, when hovering over the paragraph -->
+        <p class="mt-3 bg-dark p-2 text-white" v-on:mousemove="updateCoordinates"> Co-ordinates: {{ x }} / {{ y }} -----
+        <!-- using the modifier to stop the execution of the event of the element that contain it common example like prevent and stop, also these modifier can be chained together too.  -->
+        <span v-on:mousemove.stop="">Dead Spot</span>
+        </p>
+        <!-- creating a new counter function that increases the counter value by the number that is passed as an argument -->
+        <h2> {{ counterTwo * 4 }}</h2>
+        <!-- A method can be executedd inside the html element too. -->
+        <h2> {{ counterTwo * 4  > 100 ? " Greater than 100" : " Less than 100 " }}</h2>
+        <!-- running a function with an argument that will increase the counter value by that number, and also passing the pre-defined event object in the for of the pre-defined variable which is $event, so basically we can pass multiple object just like normal javascript -->
+        <button v-on:click="increaseCounterTwo(2, $event)">Increase Counter</button>
+        
+        <!-- there are also key modifier for handling events on specific keys most common examples are .enter .tab .esc and also they can be chained together -->
+        <div class="mt-3">
+            <input type="text" v-on:keyup.enter.space="alertMe">
+        </div>
+        <hr>
+        <!-- reacting to changes with computed properties -->
+        <button class="mb-2" v-on:click="counterThree++">Increase</button>
+        <button class="mb-2" v-on:click="counterThree--">Decrease</button>
+        <button class="mb-2" v-on:click="counterFour++">Increase Second</button>
+        <p>Counter : <span> {{ counterThree }} | {{ counterFour }}</span></p>
+        <p>Result : <span> {{ resultThree() }} } {{ output }} </span> </p>
+    </div>
+
+    <!-- jquery -->
+    <script src="js/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="js/vue.min.js"></script>
+    <!-- custom CDN -->
+    <script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

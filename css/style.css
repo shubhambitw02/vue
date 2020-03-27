@@ -1,0 +1,38 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 15px;
+    background: #eee;
+}
+
+
+#app{
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.demo{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    background: gray;
+}
+
+.red{
+    background: #b22222;
+}
+
+.blue{
+    background: #1a71a8;
+}
+
+.green{
+    background: #aacc33;
+}
